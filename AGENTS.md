@@ -6,7 +6,7 @@ This file is the **product-scoped AI agent entry point** for the DevStudio Assis
 
 ## Product overview
 
-**DevStudio Assistant** is a VS Code extension that provides a visual sidebar orchestrator for the full Spec-Driven Development (SDD) workflow. It integrates with **DevStudio Factory** (the CLI product at `projects/devstudio.factory/`) to drive phase-by-phase guided execution — from constitution authoring through specification, planning, task generation, and implementation — with a live console, interactive task checklist, stale-phase alerts, and an interactive DAG workflow map.
+**DevStudio Assistant** is a VS Code extension that provides a visual sidebar orchestrator for the full Spec-Driven Development (SDD) workflow. It integrates with **DevStudio Factory** (the CLI product at `projects/factory/`) to drive phase-by-phase guided execution — from constitution authoring through specification, planning, task generation, and implementation — with a live console, interactive task checklist, stale-phase alerts, and an interactive DAG workflow map.
 
 - **Publisher:** `qlink-innovation-and-technology`
 - **Extension name:** `devstudio-assistant`
@@ -137,6 +137,6 @@ Open the workspace as the multi-root `devstudio.code-workspace`. The **"Run Exte
 | Artifact | Path |
 | :--- | :--- |
 | Platform AGENTS.md | [`AGENTS.md`](../../AGENTS.md) |
-| DevStudio Factory AGENTS.md | [`projects/devstudio.factory/AGENTS.md`](../devstudio.factory/AGENTS.md) |
+| DevStudio Factory AGENTS.md | [`projects/factory/AGENTS.md`](../factory/AGENTS.md) |
 | Extension manifest | [`package.json`](package.json) |
 | Extension README | [`README.md`](README.md) |
