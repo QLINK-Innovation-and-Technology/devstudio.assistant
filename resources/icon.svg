@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+  <!-- Document body -->
+  <rect x="2" y="1" width="10" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+  <!-- Lines representing text -->
+  <line x1="4.5" y1="4.5" x2="9.5" y2="4.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+  <line x1="4.5" y1="6.5" x2="9.5" y2="6.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+  <line x1="4.5" y1="8.5" x2="7.5" y2="8.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+  <!-- Checkmark badge -->
+  <circle cx="12" cy="12" r="3.5" fill="currentColor"/>
+  <polyline points="10.5,12 11.5,13 13.5,11" fill="none" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

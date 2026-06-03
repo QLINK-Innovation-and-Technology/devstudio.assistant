@@ -1,0 +1,14 @@
+{
+    "chat.promptFilesRecommendations": {
+        "devstudio.factory.constitution": true,
+        "devstudio.factory.specify": true,
+        "devstudio.factory.plan": true,
+        "devstudio.factory.tasks": true,
+        "devstudio.factory.implement": true
+    },
+    "chat.tools.terminal.autoApprove": {
+        ".factory/scripts/bash/": true,
+        ".factory/scripts/powershell/": true
+    }
+}
+

@@ -1,0 +1,154 @@
+{
+  "name": "devstudio-assistant",
+  "displayName": "DevStudio Assistant",
+  "description": "Visual orchestrator for Spec-Driven Development (SDD) — guided AI workflow with constitution, spec, plan, tasks and implementation phases, inline task checklist, stale-phase alerts, clarification templates, and an interactive DAG map of your entire project.",
+  "version": "0.1.4",
+  "publisher": "qlink-innovation-and-technology",
+  "license": "MIT",
+  "icon": "resources/marketplace-icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/QLINK-Innovation-and-Technology/devstudio.git"
+  },
+  "homepage": "https://github.com/QLINK-Innovation-and-Technology/devstudio#readme",
+  "bugs": {
+    "url": "https://github.com/QLINK-Innovation-and-Technology/devstudio/issues"
+  },
+  "keywords": [
+    "sdd",
+    "spec-driven development",
+    "devstudio",
+    "devstudio-factory",
+    "ai",
+    "workflow",
+    "dag",
+    "claude",
+    "gemini",
+    "copilot",
+    "specification",
+    "planning",
+    "tasks"
+  ],
+  "galleryBanner": {
+    "color": "#0D1117",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "AI",
+    "Visualization",
+    "Programming Languages",
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "devstudio-assistant",
+          "title": "DevStudio",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "devstudio-assistant": [
+        {
+          "type": "webview",
+          "id": "devstudio.assistant.sidebar",
+          "name": "DevStudio Workflow"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "devstudio.assistant.refreshFiles",
+        "title": "DevStudio: Refresh Files",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "devstudio.assistant.openInEditor",
+        "title": "DevStudio: Open File in Editor"
+      },
+      {
+        "command": "devstudio.assistant.openDag",
+        "title": "DevStudio: Open Workflow Map",
+        "icon": "$(type-hierarchy)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "devstudio.assistant.openDag",
+          "when": "view == devstudio.assistant.sidebar",
+          "group": "navigation"
+        },
+        {
+          "command": "devstudio.assistant.refreshFiles",
+          "when": "view == devstudio.assistant.sidebar",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "DevStudio",
+      "properties": {
+        "devstudio.assistant.aiAgent": {
+          "type": "string",
+          "default": "claude",
+          "enum": [
+            "claude",
+            "gemini",
+            "copilot",
+            "openai"
+          ],
+          "enumDescriptions": [
+            "Claude (Anthropic) — uses `claude --permission-mode bypassPermissions`",
+            "Gemini (Google) — uses `printf '...' | gemini`",
+            "GitHub Copilot — uses `ghcs`",
+            "OpenAI Codex — uses `printf '...' | codex exec -`"
+          ],
+          "description": "AI agent CLI to use when running workflow phases."
+        },
+        "devstudio.assistant.agentPath": {
+          "type": "string",
+          "default": "",
+          "description": "Custom path to the AI agent CLI executable. Leave empty to use the default for the selected agent (claude, gemini, ghcs, codex)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "vsix": "npm run build && npx @vscode/vsce package --no-dependencies --allow-missing-repository"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^20.19.37",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "@types/vscode": "^1.93.0",
+    "@vitest/coverage-v8": "^4.1.8",
+    "css-loader": "^7.1.4",
+    "jsdom": "^28.1.0",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.8",
+    "webpack": "^5.105.4",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@xyflow/react": "^12.10.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

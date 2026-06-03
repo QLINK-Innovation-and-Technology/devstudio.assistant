@@ -1,0 +1,7 @@
+.vscode/**
+.claude/**
+src/**
+node_modules/**
+webpack.config.js
+tsconfig.json
+.vscodeignore
