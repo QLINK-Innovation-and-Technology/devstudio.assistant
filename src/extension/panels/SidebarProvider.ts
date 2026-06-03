@@ -114,8 +114,8 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
   private _onReady(): void {
     const root = this._workspaceRoot();
     if (root) {
-      const specifyDir = path.join(root, '.factory');
-      if (fs.existsSync(specifyDir)) {
+      const factoryDir = path.join(root, '.factory');
+      if (fs.existsSync(factoryDir)) {
         this._workflow.reconcileWithDisk(root);
       }
     }
@@ -187,8 +187,8 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
       return;
     }
 
-    const specifyDir = path.join(root, '.factory');
-    if (!fs.existsSync(specifyDir)) {
+    const factoryDir = path.join(root, '.factory');
+    if (!fs.existsSync(factoryDir)) {
       const defaultAgent = vscode.workspace
         .getConfiguration('devstudio.assistant')
         .get<string>('aiAgent', 'claude');
@@ -196,15 +196,15 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
       return;
     }
 
-    this._post({ type: 'fileTree', tree: this._buildTree(root, specifyDir) });
+    this._post({ type: 'fileTree', tree: this._buildTree(root, factoryDir) });
   }
 
   private _sendWorkflowState(): void {
     this._post({ type: 'workflowState', state: this._workflow.getState() });
   }
 
-  private _buildTree(root: string, specifyDir: string): FileTree {
-    const constitutionPath = path.join(specifyDir, 'memory', 'constitution.md');
+  private _buildTree(root: string, factoryDir: string): FileTree {
+    const constitutionPath = path.join(factoryDir, 'memory', 'constitution.md');
     const constitution: FileItem | null = fs.existsSync(constitutionPath)
       ? { name: 'constitution.md', path: constitutionPath, kind: 'constitution' }
       : null;
@@ -317,7 +317,7 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Security-Policy"
     content="default-src 'none'; script-src 'nonce-${nonce}'; style-src 'unsafe-inline';" />
-  <title>Spec Kit</title>
+  <title>DevStudio Assistant</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
